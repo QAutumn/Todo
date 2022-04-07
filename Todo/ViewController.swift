@@ -14,6 +14,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    新分支修改，现在想提交到origin / master
+    我现在改了，想提交到远端自己的分支
 }
 
