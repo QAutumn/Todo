@@ -8,6 +8,6 @@
 import Foundation
 
 struct Todo {
-    var name: String?
-    var checked: Bool?
+    var name = ""
+    var checked = false
 }

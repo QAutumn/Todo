@@ -17,29 +17,28 @@ class TodoCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         label.text = ""
         label.numberOfLines = 0
-        
-        
+
+        btn.setImage(UIImage(systemName: "circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "checkmark.circle"), for: .selected)
+        btn.tintColor = .systemOrange
         
         self.addSubview(label)
         label.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(60)
+            make.right.equalToSuperview()
+            make.left.equalToSuperview().offset(50)
+        }
+        
+        self.addSubview(btn)
+        btn.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.size.equalTo(60)
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

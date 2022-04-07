@@ -12,10 +12,10 @@ import SnapKit
 
 class TodoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let todos = [
+    var todos = [
         Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
-        Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
-        Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
+        Todo(name: "今天上午去游泳，然后回来学习📖", checked: true),
+        Todo(name: "今天上午去游泳，然后回来学习📖", checked: true),
         Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
         Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
         Todo(name: "今天上午去游泳，然后回来学习📖", checked: false),
@@ -49,6 +49,13 @@ class TodoVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TodoCell
         
         cell.label.text = todos[indexPath.row].name
+        cell.label.textColor = todos[indexPath.row].checked ? .systemGray : .label
+        
+        cell.btn.isSelected = todos[indexPath.row].checked
+        cell.btn.addAction(UIAction(handler: { _ in
+            self.todos[indexPath.row].checked.toggle()
+        }), for: .touchUpInside)
+        
         
         return cell
     }
